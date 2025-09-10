@@ -8,6 +8,6 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()]
   },
-  site: "https://feliiizabeth.github.io/j-furniture",
+  site: "https://feliiizabeth.github.io/",
   base: "/j-furniture/",
 });
