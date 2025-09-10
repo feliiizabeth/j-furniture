@@ -25,10 +25,10 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build site
+      - name: Build Astro site
         run: npm run build
 
-      - name: Upload build output
+      - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v1
         with:
           path: ./dist
@@ -38,8 +38,6 @@ jobs:
     needs: build
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Deploy to GitHub Pages
-        id: deployment
         uses: actions/deploy-pages@v1
