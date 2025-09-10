@@ -24,7 +24,7 @@ Built with [Astro](https://astro.build/) for fast performance and SEO optimizati
 
 ## Assets & Media
 
-All images, logos, and videos used in this project are provided by J Furniture. They are intellectual property of the business and are protected by copyright law. These assets are **not licensed for reuse, redistribution, republished, or commercial use**.
+All images, logos, and videos used in this project are provided by J Furniture. They are intellectual property of the business and are protected by copyright law. These assets are **not licensed for reuse, redistribution, republication, or commercial use**.
 
 If you fork or clone this project, please replace them with your own media.
 
@@ -44,11 +44,25 @@ Inside of this Astro project, you'll see the following folders and files:
 
 ```text
 /
+├── .github/
+│   └── workflows/
+│       └── deploy.yml
+├── .vscode/
+│   └── extensions.json
+│   └── launch.json
 ├── public/
+│   └── favicon.svg
 ├── src/
 │   └── pages/
 │       └── index.astro
+│   └── styles/
+│       └── global.css
+└── .gitignore
+└── README.md
+└── astro.config.mjs
+└── package-lock.json
 └── package.json
+└── tsconfig.json
 ```
 
 Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
