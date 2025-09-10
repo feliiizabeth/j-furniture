@@ -7,5 +7,7 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   vite: {
     plugins: [tailwindcss()]
-  }
+  },
+  site: "https://feliiizabeth.github.io/j-furniture",
+  base: "/j-furniture/",
 });
