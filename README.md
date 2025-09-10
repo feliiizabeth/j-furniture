@@ -1,14 +1,46 @@
-# Astro Starter Kit: Minimal
+# J Furniture
+
+A website for J Furniture, a business that provides specialty furniture services.
+
+Built with [Astro](https://astro.build/) for fast performance and SEO optimization.
+
+## Tech Stack
+
+- [Astro](https://astro.build/) (Static site generator)
+- [Tailwind CSS](https://tailwindcss.com/) (Styling)
+- Currently deployed with [GitHub Pages](https://pages.github.com/)
+
+## Features
+
+- SEO-friendly one-page design
+- Easy anchor link navigation
+- Responsive layout with Tailwind CSS
+- Sections:
+  - Landing
+  - Services
+  - Gallery
+  - About
+  - Contact
+
+## Assets & Media
+
+All images, logos, and videos used in this project are provided by J Furniture. They are intellectual property of the business and are protected by copyright law. These assets are **not licensed for reuse, redistribution, republished, or commercial use**.
+
+If you fork or clone this project, please replace them with your own media.
+
+## Astro Starter Kit: Minimal
+
+### Getting Started
 
 ```sh
 npm create astro@latest -- --template minimal
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Or follow [this guide](https://docs.astro.build/en/getting-started/) provided by Astro.
 
-## 🚀 Project Structure
+### 🚀 Project Structure
 
-Inside of your Astro project, you'll see the following folders and files:
+Inside of this Astro project, you'll see the following folders and files:
 
 ```text
 /
@@ -25,7 +57,7 @@ There's nothing special about `src/components/`, but that's where we like to put
 
 Any static assets, like images, can be placed in the `public/` directory.
 
-## 🧞 Commands
+### 🧞 Commands
 
 All commands are run from the root of the project, from a terminal:
 
@@ -38,6 +70,6 @@ All commands are run from the root of the project, from a terminal:
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
 
-## 👀 Want to learn more?
+### 👀 Want to learn more about Astro?
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Feel free to check their [documentation](https://docs.astro.build) or jump into their [Discord server](https://astro.build/chat).
