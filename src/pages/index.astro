@@ -1,17 +1,32 @@
 ---
+import "../styles/global.css";
 
+import About from "../components/About.astro"
+import Contact from "../components/Contact.astro"
+import Gallery from "../components/Gallery.astro"
+import Landing from "../components/Landing.astro"
+import NavBar from "../components/NavBar.astro"
+import Services from "../components/Services.astro"
 ---
-<link rel="stylesheet" href="/src/styles/global.css" />
+<!-- <link rel="stylesheet" href="/src/styles/global.css" /> -->
 
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" type="image/svg+xml" href="/j-furniture/square-logo.jpg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>J Furniture</title>
 	</head>
 	<body>
-		<h1>J Furniture</h1>
+		 <NavBar />
+
+		 <div class="space-y-12">
+			<Landing />
+			<Services />
+			<Gallery />
+			<About />
+			<Contact />
+		 </div>
 	</body>
 </html>

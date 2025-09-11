@@ -1,0 +1,41 @@
+---
+const services = [
+    {
+        title: "Assembling furniture",
+        details: "Dressers, tables, chairs, bedrooms, closets",
+    },
+    {
+        title: "Disassembling furniture",
+        details: "Sofas and more",
+    },
+    {
+        title: "Moving furniture",
+        details: "Careful handling of your items",
+    },
+    {
+        title: "Disposing of furniture",
+        details: "Safely remove unwanted furniture",
+    },
+    {
+        title: "Free estimated quote",
+        details: "Available for all NYC customers",
+    },
+ ];
+---
+
+<section id="services">
+    <h2 class="text-4xl font-bold">Services</h2>
+
+    <ul class="space-y-6">
+        {services.map(service => (
+            <li>
+                <h3 class="text-xl font-semibold">
+                    {service.title}
+                </h3>
+                <p class="text-sm">
+                    {service.details}
+                </p>
+            </li>
+        ))}
+    </ul>
+</section>
