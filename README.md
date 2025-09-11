@@ -52,16 +52,25 @@ Inside of this Astro project, you'll see the following folders and files:
 │   └── launch.json
 ├── public/
 │   └── favicon.svg
+│   └── logo.jpg
+│   └── square-logo.jpg
 ├── src/
+│   └── components/
+│       └── About.astro
+│       └── Contact.astro
+│       └── Gallery.astro
+│       └── Landing.astro
+│       └── NavBar.astro
+│       └── Services.astro
 │   └── pages/
 │       └── index.astro
 │   └── styles/
 │       └── global.css
 └── .gitignore
-└── README.md
 └── astro.config.mjs
 └── package-lock.json
 └── package.json
+└── README.md
 └── tsconfig.json
 ```
 
