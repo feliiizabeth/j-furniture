@@ -8,5 +8,5 @@ export default defineConfig({
     plugins: [tailwindcss()]
   },
   site: "https://feliiizabeth.github.io/",
-  base: "/j-furniture/",
+  base: "/j-furniture",
 });
