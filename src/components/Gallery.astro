@@ -1,0 +1,52 @@
+---
+const gallery = [
+    {
+        type: "video",
+        src: "../../public/videos/furniture-assembly-1.mp4",
+        alt: "",
+    },
+    {
+        type: "image",
+        src: "../../public/images/couch-sofa-1.jpg",
+        alt: "",
+    },
+    {
+        type: "video",
+        src: "../../public/videos/furniture-removal-1.mp4",
+        alt: "",
+    },
+    {
+        type: "image",
+        src: "../../public/images/bed-mattress-1.jpg",
+        alt: "",
+    },
+    {
+        type: "video",
+        src: "../../public/videos/bed-furniture-setup-1.mp4",
+        alt: "",
+    },
+];
+---
+
+<section id="gallery">
+    <h2 class="text-4xl font-extrabold m-6">Gallery</h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        {gallery.map((gallery_item) => (
+            <div class="gallery-item flex justify-center cursor-pointer">
+                {gallery_item.type === 'image' ? (
+                    <img
+                        src={gallery_item.src}
+                        alt={gallery_item.alt}
+                        class="w-full h-auto max-h-[600px] object-cover rounded-lg transition-transform duration-300 ease-in-out hover:scale-105"
+                    />
+                ) : gallery_item.type === 'video' ? (
+                    <video controls class="w-full h-auto max-h-[480px] object-cover rounded-lg transition-transform duration-300 ease-in-out hover:scale-105">
+                        <source src={gallery_item.src} type="video/mp4" />
+                        Your browser does not support the video tag.
+                    </video>
+                ) : null}
+            </div>
+        ))}
+    </div>
+</section>
