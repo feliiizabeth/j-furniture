@@ -51,6 +51,8 @@ Inside of this Astro project, you'll see the following folders and files:
 │   └── extensions.json
 │   └── launch.json
 ├── public/
+│   └── images/
+│   └── videos/
 │   └── favicon.svg
 │   └── logo.jpg
 │   └── square-logo.jpg
