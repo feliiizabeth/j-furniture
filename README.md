@@ -60,9 +60,11 @@ Inside of this Astro project, you'll see the following folders and files:
 │   └── components/
 │       └── About.astro
 │       └── Contact.astro
+│       └── Footer.astro
 │       └── Gallery.astro
 │       └── Landing.astro
 │       └── NavBar.astro
+│       └── NavLink.astro
 │       └── Services.astro
 │   └── pages/
 │       └── index.astro
