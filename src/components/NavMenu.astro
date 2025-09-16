@@ -1,0 +1,12 @@
+---
+import NavLink from "./NavLink.astro"
+const { navLinks } = Astro.props;
+---
+
+<ul class="flex flex-col items-center py-1">
+    {navLinks.map((link: { title: unknown; path: unknown; }) => (
+        <li class="my-2">
+            <NavLink title={link.title} href={link.path} />
+        </li>
+    ))}
+</ul>

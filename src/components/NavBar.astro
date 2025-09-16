@@ -1,5 +1,7 @@
 ---
 import NavLink from "./NavLink.astro";
+import NavMenu from "./NavMenu.astro";
+import { Icon } from "astro-icon/components";
 
 const navLinks = [
   {
@@ -26,20 +28,62 @@ const navLinks = [
 ---
 
 <nav class="fixed top-0 left-0 right-0 z-20 bg-white">
-    
     <div class="py-2">
-        <h1 class="text-center text-2xl font-bold">J Furniture</h1>
+        <h1 class="text-center text-2xl font-bold"><a href="/j-furniture/">J Furniture</a></h1>
     </div>
 
-    <div class="flex flex-wrap items-center justify-center pb-2">
+    <!-- Mobile menu toggle -->
+    <div class="md:hidden">
+        <button id="menu-button" class="flex items-center md:hidden">
+          <Icon name="mdi:menu" width="24" height="24" />
+        </button>
+        <button id="x-button" class="hidden items-center rounded">
+          <Icon name="mdi:close" width="24" height="24" />
+        </button>
+    </div>
+
+    <!-- Desktop nav -->
+    <div class="hidden md:flex flex-wrap items-center justify-center pb-2">
         <ul class="flex flex-row space-x-8">
-            {
-                navLinks.map((link, index) => (
-                    <li>
-                        <NavLink title={link.title} href={link.path} />
-                    </li>
-                ))
-            }
+            {navLinks.map((link) => (
+                <li>
+                    <NavLink title={link.title} href={link.path} />
+                </li>
+            ))}
         </ul>
     </div>
+
+    <!-- Mobile nav -->
+    <div id="nav-menu" class="hidden">
+      <NavMenu navLinks={navLinks} />
+    </div>
 </nav>
+
+<script>
+  const menuButton = document.getElementById("menu-button");
+  const xButton = document.getElementById("x-button");
+  const navMenu = document.getElementById("nav-menu");
+
+  // Open NavMenu when Menu button clicked
+  menuButton?.addEventListener("click", () => {
+    navMenu?.classList.remove("hidden");
+    menuButton?.classList.add("hidden");
+    xButton?.classList.remove("hidden");
+  });
+
+  // Close NavMenu when X button clicked
+  xButton?.addEventListener("click", () => {
+    navMenu?.classList.add("hidden");
+    xButton?.classList.add("hidden");
+    menuButton?.classList.remove("hidden");
+  });
+
+  // Close NavMenu when one of its links clicked
+  navMenu?.querySelectorAll("a").forEach((navlink) => {
+    navlink.addEventListener("click", () => {
+      navMenu?.classList.add("hidden");
+      xButton?.classList.add("hidden");
+      menuButton?.classList.remove("hidden");
+    });
+  });
+</script>
