@@ -28,35 +28,42 @@ const navLinks = [
 ---
 
 <nav class="fixed top-0 left-0 right-0 z-20 bg-white">
-    <div class="py-2">
-        <h1 class="text-center text-2xl font-bold"><a href="/j-furniture/">J Furniture</a></h1>
-    </div>
+  <div class="py-2">
+    <h1 class="text-center text-2xl font-bold">
+      <a href="/j-furniture/">J Furniture</a>
+    </h1>
+  </div>
 
-    <!-- Mobile menu toggle -->
-    <div class="md:hidden">
-        <button id="menu-button" class="flex items-center">
-          <Icon name="mdi:menu" width="24" height="24" />
-        </button>
-        <button id="x-button" class="hidden items-center rounded">
-          <Icon name="mdi:close" width="24" height="24" />
-        </button>
-    </div>
+  <!-- Mobile menu toggle -->
+  <div class="md:hidden">
+    <button id="menu-button" class="flex items-center">
+      <Icon name="mdi:menu" width="24" height="24" />
+    </button>
+    <button id="x-button" class="hidden items-center rounded">
+      <Icon name="mdi:close" width="24" height="24" />
+    </button>
+  </div>
 
-    <!-- Desktop nav -->
-    <div class="hidden md:flex flex-wrap items-center justify-center pb-2">
-        <ul class="flex flex-row space-x-8">
-            {navLinks.map((link) => (
-                <li>
-                    <NavLink title={link.title} href={link.path} />
-                </li>
-            ))}
-        </ul>
-    </div>
+  <!-- Desktop nav -->
+  <div class="hidden md:flex flex-wrap items-center justify-center pb-2">
+    <ul class="flex flex-row space-x-8">
+      {
+        navLinks.map((link) => (
+          <li>
+            <NavLink title={link.title} href={link.path} />
+          </li>
+        ))
+      }
+    </ul>
+  </div>
 
-    <!-- Mobile nav -->
-    <div id="nav-menu" class="hidden md:hidden">
-      <NavMenu navLinks={navLinks} />
-    </div>
+  <!-- Mobile nav -->
+  <div
+    id="nav-menu"
+    class="absolute left-0 right-0 top-full opacity-0 translate-y-[-10px] pointer-events-none transition-all duration-300 ease-in-out md:hidden bg-white shadow-md"
+  >
+    <NavMenu navLinks={navLinks} />
+  </div>
 </nav>
 
 <script>
@@ -66,13 +73,23 @@ const navLinks = [
   const mdBreakpoint = 768;
 
   function openNavMenu() {
-    navMenu?.classList.remove("hidden");
+    navMenu?.classList.remove(
+      "opacity-0",
+      "translate-y-[-10px]",
+      "pointer-events-none"
+    );
+    navMenu?.classList.add("opacity-100", "translate-y-0");
     menuButton?.classList.add("hidden");
     xButton?.classList.remove("hidden");
   }
 
   function closeNavMenu() {
-    navMenu?.classList.add("hidden");
+    navMenu?.classList.add(
+      "opacity-0",
+      "translate-y-[-10px]",
+      "pointer-events-none"
+    );
+    navMenu?.classList.remove("opacity-100", "translate-y-0");
     xButton?.classList.add("hidden");
     menuButton?.classList.remove("hidden");
   }
@@ -100,13 +117,15 @@ const navLinks = [
 
     // If NavMenu is open and user did not click it,
     // nor the Menu button, nor the X button
-    if (navMenu &&
+    if (
+      navMenu &&
       !navMenu?.classList.contains("hidden") &&
       !navMenu?.contains(target) &&
       !menuButton?.contains(target) &&
-      !xButton?.contains(target)) {
-          closeNavMenu();
-      }
+      !xButton?.contains(target)
+    ) {
+      closeNavMenu();
+    }
   });
 
   // Close NavMenu when window resizes
