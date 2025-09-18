@@ -34,7 +34,7 @@ const navLinks = [
 
     <!-- Mobile menu toggle -->
     <div class="md:hidden">
-        <button id="menu-button" class="flex items-center md:hidden">
+        <button id="menu-button" class="flex items-center">
           <Icon name="mdi:menu" width="24" height="24" />
         </button>
         <button id="x-button" class="hidden items-center rounded">
@@ -54,7 +54,7 @@ const navLinks = [
     </div>
 
     <!-- Mobile nav -->
-    <div id="nav-menu" class="hidden">
+    <div id="nav-menu" class="hidden md:hidden">
       <NavMenu navLinks={navLinks} />
     </div>
 </nav>
@@ -63,27 +63,56 @@ const navLinks = [
   const menuButton = document.getElementById("menu-button");
   const xButton = document.getElementById("x-button");
   const navMenu = document.getElementById("nav-menu");
+  const mdBreakpoint = 768;
 
-  // Open NavMenu when Menu button clicked
-  menuButton?.addEventListener("click", () => {
+  function openNavMenu() {
     navMenu?.classList.remove("hidden");
     menuButton?.classList.add("hidden");
     xButton?.classList.remove("hidden");
+  }
+
+  function closeNavMenu() {
+    navMenu?.classList.add("hidden");
+    xButton?.classList.add("hidden");
+    menuButton?.classList.remove("hidden");
+  }
+
+  // Open NavMenu when Menu button clicked
+  menuButton?.addEventListener("click", () => {
+    openNavMenu();
   });
 
   // Close NavMenu when X button clicked
   xButton?.addEventListener("click", () => {
-    navMenu?.classList.add("hidden");
-    xButton?.classList.add("hidden");
-    menuButton?.classList.remove("hidden");
+    closeNavMenu();
   });
 
   // Close NavMenu when one of its links clicked
-  navMenu?.querySelectorAll("a").forEach((navlink) => {
-    navlink.addEventListener("click", () => {
-      navMenu?.classList.add("hidden");
-      xButton?.classList.add("hidden");
-      menuButton?.classList.remove("hidden");
+  navMenu?.querySelectorAll("a").forEach((navLink) => {
+    navLink.addEventListener("click", () => {
+      closeNavMenu();
     });
+  });
+
+  // Close NavMenu when outside of it is clicked
+  document.addEventListener("click", (e) => {
+    const target = e.target as Node;
+
+    // If NavMenu is open and user did not click it,
+    // nor the Menu button, nor the X button
+    if (navMenu &&
+      !navMenu?.classList.contains("hidden") &&
+      !navMenu?.contains(target) &&
+      !menuButton?.contains(target) &&
+      !xButton?.contains(target)) {
+          closeNavMenu();
+      }
+  });
+
+  // Close NavMenu when window resizes
+  window.addEventListener("resize", () => {
+    if (window.innerWidth >= mdBreakpoint) {
+      closeNavMenu();
+    }
   });
 </script>
