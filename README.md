@@ -64,6 +64,7 @@ Inside of this Astro project, you'll see the following folders and files:
 │       └── Gallery.astro
 │       └── Landing.astro
 │       └── NavBar.astro
+│       └── NavBrand.astro
 │       └── NavLink.astro
 │       └── NavMenu.astro
 │       └── Services.astro
