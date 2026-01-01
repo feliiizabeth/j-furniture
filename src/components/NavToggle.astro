@@ -1,0 +1,12 @@
+---
+import { Icon } from "astro-icon/components";
+
+const { id, displayClass = "", icon } = Astro.props;
+---
+
+<button id={id} class={`${displayClass} hover:cursor-pointer`}>
+  <div class="flex items-center">
+    <span class="text-lg mr-2">Menu</span>
+    <Icon name={icon} width="24" height="24" />
+  </div>
+</button>
