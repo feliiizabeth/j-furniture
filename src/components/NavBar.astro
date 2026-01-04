@@ -30,14 +30,14 @@ const navLinks = [
 
 <nav class="fixed top-0 left-0 right-0 z-20 bg-white">
   <!-- Mobile menu toggle -->
-  <div class="md:hidden flex justify-between px-4 sm:px-16">
+  <div class="md:hidden flex justify-between px-4 sm:px-16 shadow-md">
     <NavBrand />
     <NavToggle id="menu-button" icon="mdi:menu" />
     <NavToggle id="x-button" displayClass="hidden" icon="mdi:close" />
   </div>
 
   <!-- Desktop nav -->
-  <div class="hidden md:flex flex-col items-center justify-center pb-2">
+  <div class="hidden md:flex flex-col items-center justify-center pb-2 shadow-md">
     <NavBrand class="w-full" />
     <ul class="flex flex-row space-x-8">
       {
